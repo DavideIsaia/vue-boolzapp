@@ -86,6 +86,7 @@ nav {
     border: 1px solid #b1b1b1;
     border-radius: 5px;
     height: 2rem;
+    min-width: calc(100% - 1rem);
 }
 
 .search-bar i {
@@ -100,7 +101,7 @@ nav {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 0.5rem;
-    min-width: 16rem;
+    min-width: 14rem;
 }
 
 /* Contact list */
