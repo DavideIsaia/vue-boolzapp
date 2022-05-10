@@ -8,7 +8,7 @@
 /* REGOLE COMUNI */
 html {
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(0deg, rgba(210,219,220,1) 85%, rgba(0,150,136,1) 85%);
+    background: linear-gradient(0deg, rgba(210,219,220,1) 40%, rgba(221,219,209,1) 85%, rgba(0,150,136,1) 85%);
 }
 
 .flex {
