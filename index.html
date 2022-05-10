@@ -24,19 +24,19 @@
             <!-- SIDEBAR TOP -->
             <div>
                 <!-- User -->
-                <div class="user-profile flex align">
-                    <div class="flex align">
+                <div class="top-div flex">
+                    <div class="flex">
                         <img src="img/avatar_io.jpg" alt="user image">
                         <span>Sofia</span>
                     </div>
-                    <div class="profile-options">
+                    <div class="options">
                         <i class="fas fa-circle-notch"></i>
                         <i class="fas fa-comment-alt"></i>
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
                 <!-- Desktop Notifications -->
-                <div class="desktop-notifications flex align">
+                <div class="desktop-notifications flex">
                     <i class="fas fa-bell-slash"></i>
                     <div>
                         <div>Ricevi notifiche di nuovi messaggi</div>
@@ -44,8 +44,8 @@
                     </div>
                 </div>
                 <!-- Search Bar -->
-                <div class="search flex align">
-                    <div class="search-bar flex align">
+                <div class="search flex">
+                    <div class="search-bar flex">
                         <i class="fas fa-search"></i>
                         <input class="search-box graytext" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
@@ -53,15 +53,15 @@
             </div>           
             <!-- CONTACT LIST -->
             <ul class="contact-list">
-                <li class="flex align">
-                    <div class="friend flex align">
-                        <img src="img/avatar_1.jpg" alt="Michele">
+                <li class="flex" v-for="element in contacts">
+                    <div class="friend flex">
+                        <img :src="'img/avatar'+ element.avatar +'.jpg'" :alt="element.name">
                         <div>
-                            <div class="name">Michele</div>
-                            <div class="last-msg graytext">Ultimo mess inviato</div>
+                            <div class="name">{{ element.name }}</div>
+                            <div class="last-msg graytext ellipsis">{{ element.messages[0].message }}</div>
                         </div>                        
                     </div>
-                    <div class="last-msg-date graytext">12.00</div>
+                    <div class="last-msg-date graytext ellipsis">{{ element.messages[0].date }}</div>
                 </li>
             </ul>                
         </nav>
@@ -69,25 +69,32 @@
         <!-- MAIN CONTENT -->
         <section>
             <!-- Content Top -->
-            <div class="content-top">
+            <div class="top-div flex">
                 <!-- Active Friend -->
-                <div class="active-friend">
-                    <img src="" alt="">
-                    <span class="name"></span>
-                    <span class="last-msg-date"></span>
+                <div class="active-friend flex">
+                    <img src="img/avatar_1.jpg" alt="Michele">
+                    <div>
+                        <div class="name">Michele</div>
+                        <div class="graytext">Ultimo accesso oggi alle 12.00</div>
+                    </div>
                 </div>
+                
                 <!-- Chat Options -->
-                <div class="chat-options">
-                    <i></i>
-                    <i></i>
-                    <i></i>
+                <div class="options">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
                 </div>
             </div>
-            
+
             <!-- Active Chat -->
             <div class="active-chat">
-                <div class="status">
-                    <span class="message"></span>
+                <div class="row received">
+                    <span class="message">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum illum, praesentium dolores enim labore sed vero, voluptatem laborum ea neque velit et harum accusantium voluptate. Libero rem similique ex ullam!</span>
+                    <span class="date"></span>
+                </div>
+                <div class="row sent">
+                    <span class="message">Bravo, sai il latino</span>
                     <span class="date"></span>
                 </div>
             </div>
