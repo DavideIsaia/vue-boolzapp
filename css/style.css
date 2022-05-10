@@ -9,10 +9,64 @@
 html {
     font-family: 'Lato', sans-serif;
     font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(0deg, rgba(210,219,220,1) 85%, rgba(0,150,136,1) 85%);
+}
+
+.flex {
+    display: flex;
+}
+
+.align {
+    align-items: center;
 }
 
 .container {
-    width: 100%;
-    height: 100vh;
+    width: 70%;
+    min-width: 950px;
+    height: 90vh;
     overflow: hidden;
+    margin: 5vh 15%;
+}
+
+img {
+    width: 4rem;
+    border-radius: 50%;
+    padding: 1rem 0.5rem;
+}
+
+i {
+    margin: 1rem 0.5rem;
+    font-size: 1.3rem;
+    color: #b1b1b1;
+    cursor: pointer;
+}
+
+.graytext {
+    color: #808080;
+    font-size: 0.8rem;
+}
+
+/* NAVBAR */
+nav {
+    width: 35%;
+}
+
+.user-profile {
+    background-color: #eaeaea;
+    justify-content: space-between;
+}
+
+.profile-options {
+    justify-content: flex-end;
+}
+
+.desktop-notifications {
+    background-color: #8edafc;
+}
+
+.desktop-notifications i {
+    background-color: white;
+    border-radius: 50%;
+    color: #8edafc;
+    padding: 0.9rem 0.7rem;
 }
