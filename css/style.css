@@ -70,3 +70,26 @@ nav {
     color: #8edafc;
     padding: 0.9rem 0.7rem;
 }
+
+.search {
+    background-color: #eaeaea;
+    height: 2.5rem;
+}
+
+.search-bar {
+    background-color: white;
+    margin: 0.4rem;
+    border: 1px solid #b1b1b1;
+    border-radius: 5px;
+    height: 2rem;
+}
+
+.search-bar i {
+    font-size: 0.8rem;
+}
+  
+.search-box {
+    border: 0;
+    padding: 0.5rem;
+    min-width: 90%;
+}
