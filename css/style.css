@@ -97,6 +97,8 @@ nav {
 .search-box {
     border: 0;
     border-left: 1px solid #eaeaea;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     padding: 0.5rem;
     min-width: 16rem;
 }
@@ -137,11 +139,12 @@ section {
     display: flex;
     flex-direction: column;
     background-image: url(../img/mine.jpg);
-    height: calc(100% - 150px);
+    height: calc(100% - 160px);
     overflow-y: scroll;
 }
 
 .row {
+    position: relative;
     min-height: fit-content;
     padding: 1rem;
     border-radius: 10px;
@@ -154,6 +157,12 @@ section {
     margin-left: 5rem;
 }
 
+.date {
+    position: absolute;
+    bottom: -3px;
+    right: 6px;
+}
+
 .sent {
     align-self: flex-end;
     background-color: #d5f9ba;
@@ -161,6 +170,19 @@ section {
 }
 
 .writing-bar {
-    height: 150px;
+    height: 160px;
     background-color: #f3eeea;
+}
+
+.writing-bar i {
+    color: #6b7376;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.6rem;
+}
+
+.write-box {
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    padding: 1.1rem;
+    min-width: calc(100% - 12rem);
 }
