@@ -8,7 +8,6 @@
 /* REGOLE COMUNI */
 html {
     font-family: 'Lato', sans-serif;
-    font-family: 'Montserrat', sans-serif;
     background: linear-gradient(0deg, rgba(210,219,220,1) 85%, rgba(0,150,136,1) 85%);
 }
 
@@ -44,6 +43,7 @@ i {
 .graytext {
     color: #808080;
     font-size: 0.8rem;
+    margin: 0.3rem 0;
 }
 
 /* NAVBAR */
@@ -57,7 +57,7 @@ nav {
 }
 
 .profile-options {
-    justify-content: flex-end;
+    padding-right: 1rem;
 }
 
 .desktop-notifications {
@@ -73,7 +73,7 @@ nav {
 
 .search {
     background-color: #eaeaea;
-    height: 2.5rem;
+    height: 2.8rem;
 }
 
 .search-bar {
@@ -90,6 +90,22 @@ nav {
   
 .search-box {
     border: 0;
+    border-left: 1px solid #eaeaea;
     padding: 0.5rem;
-    min-width: 90%;
+    min-width: 18rem;
+}
+
+/* Contact list */
+.contact-list {
+    background-color: white;
+    overflow-y: scroll;
+}
+
+li {
+    justify-content: space-between;
+}
+
+.last-msg-date {
+    align-self: flex-start;
+    margin: 0.2rem 0.5rem;
 }
