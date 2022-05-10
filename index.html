@@ -53,15 +53,17 @@
             </div>           
             <!-- CONTACT LIST -->
             <ul class="contact-list">
-                <li class="flex" v-for="element in contacts">
+                <li class="flex" 
+                    v-for="(element, index) in contacts"
+                    :class="{active: index === activeChat}">
                     <div class="friend flex">
                         <img :src="'img/avatar'+ element.avatar +'.jpg'" :alt="element.name">
                         <div>
                             <div class="name">{{ element.name }}</div>
-                            <div class="last-msg graytext ellipsis">{{ element.messages[0].message }}</div>
+                            <div class="last-msg graytext ellipsis">{{ element.messages[element.messages.length-1].message }}</div>
                         </div>                        
                     </div>
-                    <div class="last-msg-date graytext ellipsis">{{ element.messages[0].date }}</div>
+                    <div class="last-msg-date graytext ellipsis">{{ element.messages[element.messages.length-1].date }}</div>
                 </li>
             </ul>                
         </nav>
@@ -72,9 +74,9 @@
             <div class="top-div flex">
                 <!-- Active Friend -->
                 <div class="active-friend flex">
-                    <img src="img/avatar_1.jpg" alt="Michele">
+                    <img :src="'img/avatar'+ contacts[activeChat].avatar +'.jpg'" :alt="Michele">
                     <div>
-                        <div class="name">Michele</div>
+                        <div class="name">{{contacts[activeChat].name}}</div>
                         <div class="graytext">Ultimo accesso oggi alle 12.00</div>
                     </div>
                 </div>
