@@ -170,7 +170,10 @@ const app = new Vue (
         },
 
         methods: {
-
+            // prende la chat dell'index del ciclo v-for e la mostra al clic sull'elemento corrispondente
+            getActiveChat(index) {
+                this.activeChat = index;
+            }
         }
     }
 )

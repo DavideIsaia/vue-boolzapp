@@ -55,7 +55,9 @@
         <ul>
             <li class="flex" 
                 v-for="(element, index) in contacts"
-                :class="{active: index === activeChat}">
+                :class="{active: index === activeChat}"
+                @click="getActiveChat(index)"                
+            >
                 <div class="friend flex">
                     <img :src="'img/avatar'+ element.avatar +'.jpg'" :alt="element.name">
                     <div>
