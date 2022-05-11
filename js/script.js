@@ -169,7 +169,9 @@ const app = new Vue (
             activeChat: 0,
             newMessage: '',
             botMessage: 'Ciao, va bene :)',
-            adesso: dayjs().format('HH:mm')         
+            adesso: dayjs().format('HH:mm'),
+            search: '',
+            dropDown: -1    //lo imposto a -1 così non viene visualizzato all'avvio della pagina   
         },
 
         methods: {
@@ -203,8 +205,9 @@ const app = new Vue (
                 },1200);
             },
 
+            // la funzione ricerca tra i contatti (non nel testo dei messaggi)
             filterSearch() {
-                // Scorro l'array con il forEach e se le lettere inserite nell'input sono contenute nell'array allora visible è true, altrimenti false
+                // scorro l'array con il forEach e se le lettere inserite nell'input sono contenute nell'array allora visible è true, altrimenti false
                 this.contacts.forEach((element) => {
 
                     // svolgo la ricerca indifferentemente tra lettere minuscole e maiuscole
@@ -216,6 +219,11 @@ const app = new Vue (
                         element.visible = false;
                     }
                 })
+            },
+
+            // cancella il messaggio selezionato
+            deleteMessage(index){
+                this.contacts[this.activeChat].messages.splice(index,1);        
             }
         }
     }

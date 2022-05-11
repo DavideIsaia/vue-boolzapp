@@ -85,7 +85,7 @@
             <div class="active-friend flex">
                 <img :src="'img/avatar'+ contacts[activeChat].avatar +'.jpg'" :alt="contacts[activeChat].name">
                 <div>
-                    <div class="name">{{contacts[activeChat].name}}</div>
+                    <div class="name">{{ contacts[activeChat].name }}</div>
                     <div class="graytext">Ultimo accesso oggi alle {{ adesso }}</div>
                 </div>
             </div>
@@ -104,9 +104,19 @@
             <div v-for="(element, index) in contacts[activeChat].messages"                 
                  class="row"
                  :class="element.status"
+                 @mouseleave="dropDown = -1"
             >
-                <div class="element">{{element.message}}</div>
-                <div class="date graytext">{{element.date}}</div>
+                <div class="message">{{ element.message }}</div>
+                <div class="date graytext">{{ element.date }}</div>
+                <i @click="dropDown = index"
+                   class="fas fa-chevron-down">
+                </i>
+                <div class="dropdown" 
+                     v-show="index === dropDown"
+                >
+                    <div>Info messaggio</div>
+                    <div @click="deleteMessage(index)">Cancella messaggio</div>
+                </div>
             </div>
 
         </div>
@@ -124,10 +134,6 @@
         </div>
     </section>
 </div>
-<!--
-    HTML <i class="fas fa-chevron-down"></i> 
-    VueJS <font-awesome-icon icon="fas fa-chevron-down"/> 
--->
 <!-- scripts -->
 <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 <script src="js/script.js" type="text/javascript"></script>    
