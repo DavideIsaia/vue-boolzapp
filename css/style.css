@@ -178,6 +178,32 @@ section {
     margin-right: 5rem;    
 }
 
+.received:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+    left: -10px;
+	right: auto;
+    top: 0px;
+	bottom: auto;
+	border: 22px solid;
+	border-color: white transparent transparent transparent;
+}
+
+.sent:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+    right: -10px;
+	left: auto;
+    top: 0px;
+	bottom: auto;
+	border: 22px solid;
+	border-color: #d5f9ba transparent transparent transparent;
+}
+
 .writing-bar {
     height: 160px;
     background-color: #f3eeea;
