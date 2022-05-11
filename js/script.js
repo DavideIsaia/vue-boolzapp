@@ -166,17 +166,42 @@ const app = new Vue (
                     ],
                 }
             ],
-            activeChat: 0           
+            activeChat: 0,
+            newMessage: '',
+            botMessage: 'Ciao, va bene :)',
+            adesso: dayjs().format('HH:mm')          
         },
 
         methods: {
             // prende la chat dell'index del ciclo v-for e la mostra al clic sull'elemento corrispondente
             getActiveChat(index) {
                 this.activeChat = index;
-            }
+            },
+
+            // preleva il messaggio inserito dall'utente e lo pusha nell'array
+            myNewMessage() {
+                const message = {
+                    date: this.adesso,
+                    message: this.newMessage,
+                    status: 'sent'
+                }
+                // push
+                this.contacts[this.activeChat].messages.push(message);
+
+                // ripulisco il campo
+                this.newMessage ='';
+
+                // genero la risposta automatica del bot dopo 1,2 sec
+                setTimeout(() => {
+                    const botMessage = {
+                        date: this.adesso,
+                        message: this.botMessage,
+                        status: 'received'
+                    }
+                    // pusho anchequesto nell'array per visualizzarlo nella colonna sinistra
+                    this.contacts[this.activeChat].messages.push(botMessage);
+                },1200);
+            },
         }
     }
 )
-
-const date = dayjs();
-console.log(date);

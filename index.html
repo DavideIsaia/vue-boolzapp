@@ -108,7 +108,12 @@
         <!-- WRITING BAR -->
         <div class="writing-bar">
             <i class="far fa-smile"></i>
-            <input class="write-box graytext" type="text" placeholder="Scrivi un messaggio">
+            <input class="write-box graytext"
+                   @keyup.enter="myNewMessage()" 
+                   v-model.trim="newMessage" 
+                   type="text" 
+                   placeholder="Scrivi un messaggio"
+            >
             <i class="fas fa-microphone"></i>
         </div>
     </section>
