@@ -46,7 +46,12 @@
             <div class="search flex">
                 <div class="search-bar flex">
                     <i class="fas fa-search"></i>
-                    <input class="search-box graytext" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input class="search-box graytext" 
+                           type="text" 
+                           placeholder="Cerca o inizia una nuova chat"
+                           v-model="search"
+                           @keyup="filterSearch"
+                    >
                 </div>
             </div>                
         </div>    
@@ -55,6 +60,7 @@
         <ul>
             <li class="flex" 
                 v-for="(element, index) in contacts"
+                v-if="element.visible"
                 :class="{active: index === activeChat}"
                 @click="getActiveChat(index)"                
             >
@@ -95,12 +101,12 @@
         <!-- ACTIVE CHAT -->
         <div class="active-chat">
  
-            <div v-for="(message, index) in contacts[activeChat].messages"                 
+            <div v-for="(element, index) in contacts[activeChat].messages"                 
                  class="row"
-                 :class="message.status"
+                 :class="element.status"
             >
-                <div class="message">{{message.message}}</div>
-                <div class="date graytext">{{message.date}}</div>
+                <div class="element">{{element.message}}</div>
+                <div class="date graytext">{{element.date}}</div>
             </div>
 
         </div>

@@ -169,7 +169,7 @@ const app = new Vue (
             activeChat: 0,
             newMessage: '',
             botMessage: 'Ciao, va bene :)',
-            adesso: dayjs().format('HH:mm')          
+            adesso: dayjs().format('HH:mm')         
         },
 
         methods: {
@@ -202,6 +202,21 @@ const app = new Vue (
                     this.contacts[this.activeChat].messages.push(botMessage);
                 },1200);
             },
+
+            filterSearch() {
+                // Scorro l'array con il forEach e se le lettere inserite nell'input sono contenute nell'array allora visible è true, altrimenti false
+                this.contacts.forEach((element) => {
+
+                    // svolgo la ricerca indifferentemente tra lettere minuscole e maiuscole
+                    const filteredName = element.name.toLowerCase();
+                    const filteredSearch = this.search.toLowerCase();
+                    if (filteredName.includes(filteredSearch)) {
+                        element.visible = true;
+                    } else {
+                        element.visible = false;
+                    }
+                })
+            }
         }
     }
 )
