@@ -166,7 +166,7 @@ const app = new Vue (
                     ],
                 }
             ],
-            activeChat: 0            
+            activeChat: 0           
         },
 
         methods: {
@@ -174,3 +174,6 @@ const app = new Vue (
         }
     }
 )
+
+const date = dayjs();
+console.log(date);
