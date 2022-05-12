@@ -1,4 +1,7 @@
 Vue.config.devtools = true;
+
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+
 const app = new Vue (
     {
         el : '#root',
@@ -10,17 +13,17 @@ const app = new Vue (
                     visible: true,
                     messages: [
                         {
-                            date: '10/04/2022 15:30:55',
+                            date: '05/05/2022 15:30:55',
                             message: 'Hai portato a spasso il cane?',
                             status: 'sent'
                         },
                         {
-                            date: '10/04/2022 15:50:00',
+                            date: '05/05/2022 15:50:00',
                             message: 'Ricordati di stendere i panni',
                             status: 'sent'
                         },
                         {
-                            date: '10/04/2022 16:15:22',
+                            date: '05/05/2022 16:15:22',
                             message: 'Tutto fatto!',
                             status: 'received'
                         }
@@ -169,7 +172,7 @@ const app = new Vue (
             activeChat: 0,
             newMessage: '',
             botMessage: 'Ciao, va bene :)',
-            adesso: dayjs().format('HH:mm'),
+            adesso: dayjs().format('DD/MM/YYYY HH:mm:ss'),
             search: '',
             dropDown: -1    //lo imposto a -1 così non viene visualizzato all'avvio della pagina   
         },
@@ -222,8 +225,14 @@ const app = new Vue (
             },
 
             // cancella il messaggio selezionato
-            deleteMessage(index){
+            deleteMessage(index) {
                 this.contacts[this.activeChat].messages.splice(index,1);        
+            },
+
+            // restituisce giorno, mese scritto a lette, ora e minuti
+            getTime(date) {
+                const dayjsDate = dayjs(date, 'DD/MM/YYYY HH:mm:ss');
+                return dayjsDate.format('DD MMMM HH:mm'); 
             }
         }
     }

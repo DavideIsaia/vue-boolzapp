@@ -62,7 +62,6 @@
             <li class="flex" 
                 v-for="(element, index) in contacts"
                 v-if="element.visible"
-                v-if="element.messages"
                 :class="{active: index === activeChat}"
                 @click="getActiveChat(index)"                
             >
@@ -73,7 +72,7 @@
                         <div class="last-msg graytext ellipsis">{{ element.messages[element.messages.length-1].message }}</div>
                     </div>                        
                 </div>
-                <div class="last-msg-date graytext ellipsis">{{ element.messages[element.messages.length-1].date }}</div>
+                <div class="last-msg-date graytext ellipsis">{{ getTime(element.messages[element.messages.length-1].date) }}</div>
             </li>
         </ul>                
     </nav>
@@ -103,14 +102,13 @@
         <!-- ACTIVE CHAT -->
         <div class="active-chat">
  
-            <div v-for="(element, index) in contacts[activeChat].messages"
-                 v-if="contacts[activeChat].messages"                 
+            <div v-for="(element, index) in contacts[activeChat].messages"             
                  class="row"
                  :class="element.status"
                  @mouseleave="dropDown = -1"
             >
                 <div class="message">{{ element.message }}</div>
-                <div class="date graytext">{{ element.date }}</div>
+                <div class="date graytext">{{ getTime(element.date) }}</div>
                 <i @click="dropDown = index"
                    class="fas fa-chevron-down">
                 </i>
@@ -139,6 +137,7 @@
 </div>
 <!-- scripts -->
 <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.25/plugin/customParseFormat.js"></script>
 <script src="js/script.js" type="text/javascript"></script>    
 </body>
 </html>
