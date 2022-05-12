@@ -115,6 +115,7 @@ ul {
 }
 
 li {
+    position: relative;
     justify-content: space-between;
     border-bottom: 1px solid #eaeaea;
 }
@@ -132,19 +133,17 @@ li:hover {
 }
 
 .friend {
-    flex-grow: 2;
+    min-width: 0;
 }
 
 .friend-text {
-    flex-grow: 2;
-}
-
-.last-msg {
-    width: calc(100% - 5px);
+    width: calc(100% - 4rem);
 }
 
 .last-msg-date {
-    align-self: flex-start;
+    position: absolute;
+    top: 0;
+    right: 0;
     margin: 0.2rem 0.5rem;
 }
 
