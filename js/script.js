@@ -171,7 +171,20 @@ const app = new Vue (
             ],
             activeChat: 0,
             newMessage: '',
-            botMessage: 'Ciao, va bene :)',
+            botMessages: [
+                'Ciao, va bene :)',
+                'Hola! come stai?',         
+                'Grandee! da quanto tempo non ci si sente',         
+                'Fatti trovare sotto casa che sto arrivando',                
+                'Devo parlarti.',
+                'Che facciamo per ferragosto?',
+                'Che ne dici di una bella grigliata di pesce questo sabato?',
+                'La salpa è un pesce famoso nel mediterraneo, ma si può trovare anche nell\'Atlantico dall\'Inghilterra fino al Sudafrica. Venduta spesso come orata, la particolarità di questo pesce è che se viene mangiata la parte della testa questa produrrà effetti simili all\'LSD dovuti al plancton mangiato dal pesce e gli effetti possono durare anche per 48 ore.',
+                'negli anni \'30 in germania, un chimico tedesco mise a punto un nuovo farmaco quasi miracoloso. il pervitin prometteva infatti grandi prestazioni sul lavoro e concentrazione nello studio, energia ed euforia per oltre 12 ore di fila. Con queste  premesse, anche l\'esercitò si interessò al farmaco, inserendolo nel kit di combattimento dei soldati. c\'era solo un problema: il pervitin altro non era che metanfetamina. Gli effetti collaterali non tardarono a farsi vedere, ma per i vertici militari erano un piccolo prezzo da pagare di fronte al vantaggio tattico di soldati che potevano stare svegli per una settimana di fila.',
+                'all\'inizio del 1800, i dottori dediti a studiare l\'anatomia del corpo umano erano sempre di più, e i corpi a disposizione sempre meno. nacquero così i ladri di cadaveri, ben pagati quando riuscivano a fornire agli anatomisti corpi freschi appena sepolti. una coppia di disoccupati irlandesi, Hare e Burke, si ingegnarono e, poichè i corpi dovevano essere in buone condizioni, invece di andare a cercare al cimitero, i due facevano ubriacare le vittime prescelte e poi le soffocavano. Il dottor Knox pubblicò il "Manual of artistic anatomy" con i morti da loro forniti, mentre i due assassini furono scoperti e impiccati: vennero dissezionati (guarda caso) e lo scheletro di Burke è ora in esposizione all\'università medica di Edimburgo.',
+                'Una pianta originaria dell\'Africa occidentale produce i cosiddetti "frutti del miracolo", simili a dei chicchi d\'uva di colore rosso. Il frutto viene chiamato così grazie alla molecola di miracolina che è di per se insapore, ma se assunta prima di cibi o bevande acide, è in grado di renderli più dolci. Poco conosciuto in europa, questo frutto ha avuto molto successo in Giappone, dove viene utilizzato dalle pasticcerie per produrre dolci e torte a basso contenuto calorico'
+
+            ],
             adesso: dayjs().format('DD/MM/YYYY HH:mm:ss'),
             adessoHHmm: dayjs().format('HH:mm'),
             search: '',
@@ -200,7 +213,7 @@ const app = new Vue (
                     setTimeout(() => {
                         const botMessage = {
                         date: this.adesso,
-                        message: this.botMessage,
+                        message: this.botMessages[this.randomNumber( 0 , this.botMessages.length -1 )],
                         status: 'received'
                     }
                         // pusho anche questo nell'array per visualizzarlo nella colonna sinistra
@@ -234,7 +247,11 @@ const app = new Vue (
             getTime(date) {
                 const dayjsDate = dayjs(date, 'DD/MM/YYYY HH:mm:ss');
                 return dayjsDate.format('DD MMMM HH:mm'); 
-            }
+            },
+
+            randomNumber( min, max ){     
+                return Math.floor(Math.random() * (max - min +1) + min);
+              },
         }
     }
 )
