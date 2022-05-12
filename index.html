@@ -87,7 +87,7 @@
                 <img :src="'img/avatar'+ contacts[activeChat].avatar +'.jpg'" :alt="contacts[activeChat].name">
                 <div>
                     <div class="name">{{ contacts[activeChat].name }}</div>
-                    <div class="graytext">Ultimo accesso oggi alle {{ adesso }}</div>
+                    <div class="graytext">Ultimo accesso oggi alle {{ adessoHHmm }}</div>
                 </div>
             </div>
             
@@ -109,6 +109,7 @@
             >
                 <div class="message">{{ element.message }}</div>
                 <div class="date graytext">{{ getTime(element.date) }}</div>
+                <i class="fas fa-check"></i>
                 <i @click="dropDown = index"
                    class="fas fa-chevron-down">
                 </i>

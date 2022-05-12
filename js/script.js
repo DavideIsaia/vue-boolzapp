@@ -173,6 +173,7 @@ const app = new Vue (
             newMessage: '',
             botMessage: 'Ciao, va bene :)',
             adesso: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+            adessoHHmm: dayjs().format('HH:mm'),
             search: '',
             dropDown: -1    //lo imposto a -1 così non viene visualizzato all'avvio della pagina   
         },

@@ -165,7 +165,15 @@ section {
 .date {
     position: absolute;
     bottom: -3px;
+    right: 28px;
+}
+
+.fa-check {
+    position: absolute;
+    bottom: -12px;
     right: 6px;
+    font-size: 0.6rem;
+    color: #51bbe7;
 }
 
 .message {
