@@ -185,27 +185,27 @@ const app = new Vue (
 
             // preleva il messaggio inserito dall'utente e lo pusha nell'array
             myNewMessage() {
-                const message = {
+                const newMessage = {
                     date: this.adesso,
-                    message: this.newMessage,
+                    message: this.newMessage.trim(),
                     status: 'sent'
                 }
-                // push
-                this.contacts[this.activeChat].messages.push(message);
-
-                // ripulisco il campo
-                this.newMessage ='';
-
-                // genero la risposta automatica del bot dopo 1,2 sec
-                setTimeout(() => {
-                    const botMessage = {
+                // push solo se c'è almeno un carattere o numero
+                if (this.newMessage.trim().length > 0) {
+                    this.contacts[this.activeChat].messages.push(newMessage);
+                    // ripulisco il campo
+                    this.newMessage ='';
+                    // genero la risposta automatica del bot dopo 1,2 sec
+                    setTimeout(() => {
+                        const botMessage = {
                         date: this.adesso,
                         message: this.botMessage,
                         status: 'received'
                     }
-                    // pusho anchequesto nell'array per visualizzarlo nella colonna sinistra
-                    this.contacts[this.activeChat].messages.push(botMessage);
-                },1200);
+                        // pusho anche questo nell'array per visualizzarlo nella colonna sinistra
+                        this.contacts[this.activeChat].messages.push(botMessage);
+                    },1200);
+                }
             },
 
             // la funzione ricerca tra i contatti (non nel testo dei messaggi)
@@ -229,7 +229,7 @@ const app = new Vue (
                 this.contacts[this.activeChat].messages.splice(index,1);        
             },
 
-            // restituisce giorno, mese scritto a lette, ora e minuti
+            // restituisce giorno, mese scritto a lettere, ora e minuti
             getTime(date) {
                 const dayjsDate = dayjs(date, 'DD/MM/YYYY HH:mm:ss');
                 return dayjsDate.format('DD MMMM HH:mm'); 
