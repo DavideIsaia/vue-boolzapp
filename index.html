@@ -67,7 +67,7 @@
             >
                 <div class="friend flex">
                     <img :src="'img/avatar'+ element.avatar +'.jpg'" :alt="element.name">
-                    <div>
+                    <div class="friend-text">
                         <div class="name">{{ element.name }}</div>
                         <div class="last-msg graytext ellipsis">{{ element.messages[element.messages.length-1].message }}</div>
                     </div>                        
@@ -87,7 +87,7 @@
                 <img :src="'img/avatar'+ contacts[activeChat].avatar +'.jpg'" :alt="contacts[activeChat].name">
                 <div>
                     <div class="name">{{ contacts[activeChat].name }}</div>
-                    <div class="graytext">Ultimo accesso oggi alle {{ adessoHHmm }}</div>
+                    <div class="graytext">Ultimo accesso oggi alle {{ currentTimeHHmm }}</div>
                 </div>
             </div>
             

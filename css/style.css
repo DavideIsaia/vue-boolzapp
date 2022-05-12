@@ -131,6 +131,18 @@ li:hover {
     background-color: #e9ebeb;
 }
 
+.friend {
+    flex-grow: 2;
+}
+
+.friend-text {
+    flex-grow: 2;
+}
+
+.last-msg {
+    width: calc(100% - 5px);
+}
+
 .last-msg-date {
     align-self: flex-start;
     margin: 0.2rem 0.5rem;
